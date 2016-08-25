@@ -17,29 +17,29 @@ fs.readFile './data/autompg.txt', 'utf-8', (err, data) ->
   autoData = _.map autoData, (data) ->
     output = data[0] / 100                   # 0 Scale MPG with a max of 100
     input = [
-      if parseInt(data[1]) is 4 then 1 else 0   # 1 4 cylinder
-      if parseInt(data[1]) is 6 then 1 else 0   # 2 6 cylinder
-      if parseInt(data[1]) is 8 then 1 else 0   # 3 8 cylinder
-      data[2] / 500                   # 4 Scaled Displacement with a max of 500
-      data[3] / 500                   # 5 Scaled horsepower with a max of 500
-      data[4] / 5000                  # 6 Scaled weight with a max of 5000
-      data[5] / 25                    # 7 Scaled acceleration with a max of 25
-      if parseInt(data[6]) is 70 then 1 else 0  # 8 Model Year 1970
-      if parseInt(data[6]) is 71 then 1 else 0  # 9 Model Year 1971
-      if parseInt(data[6]) is 72 then 1 else 0  # 10 Model Year 1972
-      if parseInt(data[6]) is 73 then 1 else 0  # 11 Model Year 1973
-      if parseInt(data[6]) is 74 then 1 else 0  # 12 Model Year 1974
-      if parseInt(data[6]) is 75 then 1 else 0  # 13 Model Year 1975
-      if parseInt(data[6]) is 76 then 1 else 0  # 14 Model Year 1976
-      if parseInt(data[6]) is 77 then 1 else 0  # 15 Model Year 1977
-      if parseInt(data[6]) is 78 then 1 else 0  # 16 Model Year 1978
-      if parseInt(data[6]) is 79 then 1 else 0  # 19 Model Year 1979
-      if parseInt(data[6]) is 80 then 1 else 0  # 20 Model Year 1980
-      if parseInt(data[6]) is 81 then 1 else 0  # 21 Model Year 1981
-      if parseInt(data[6]) is 82 then 1 else 0  # 22 Model Year 1982
-      if parseInt(data[7]) is 1 then 1 else 0   # 23 Origin American
-      if parseInt(data[7]) is 2 then 1 else 0   # 24 Origin European
-      if parseInt(data[7]) is 3 then 1 else 0   # 25 Origin Asian
+1 4 cylinder
+2 6 cylinder
+3 8 cylinder
+4 Scaled Displacement with a max of 500
+5 Scaled horsepower with a max of 500
+6 Scaled weight with a max of 5000
+7 Scaled acceleration with a max of 25
+8 Model Year 1970
+9 Model Year 1971
+10 Model Year 1972
+11 Model Year 1973
+12 Model Year 1974
+13 Model Year 1975
+14 Model Year 1976
+15 Model Year 1977
+16 Model Year 1978
+19 Model Year 1979
+20 Model Year 1980
+21 Model Year 1981
+22 Model Year 1982
+23 Origin American
+24 Origin European
+25 Origin Asian
     ]
 
     [input, output]
