@@ -2,7 +2,7 @@ var synaptic = require('synaptic');
 var Architect = synaptic.Architect;
 var Trainer = synaptic.Trainer;
 
-var myNetwork = new Architect.Perceptron(2, 3, 1);
+var myNetwork = new Architect.Perceptron(2, 2, 1);
 var trainer = new Trainer(myNetwork);
 
 var trainingData = [{
@@ -20,11 +20,14 @@ var trainingData = [{
 }];
 
 trainer.train(trainingData, {
-  rate: .1,
-  iterations: 20000,
-  error: .0005,
+  rate: .3,
+  iterations: 50000,
+  error: .0000005,
   shuffle: true,
   log: 1000
 });
 
+console.log(myNetwork.activate([0, 0]));
 console.log(myNetwork.activate([0, 1]));
+console.log(myNetwork.activate([1, 0]));
+console.log(myNetwork.activate([1, 1]));

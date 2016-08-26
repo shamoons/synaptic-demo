@@ -6,18 +6,20 @@ var Layer = synaptic.Layer;
 var Network = synaptic.Network;
 
 var inputLayer = new Layer(23);
-var hiddenLayer = new Layer(46);
+var hiddenLayer1 = new Layer(40);
+var hiddenLayer2 = new Layer(40);
 var outputLayer = new Layer(1);
-inputLayer.project(hiddenLayer);
-hiddenLayer.project(outputLayer);
+inputLayer.project(hiddenLayer1);
+hiddenLayer1.project(hiddenLayer2);
+hiddenLayer2.project(outputLayer);
 var myNetwork = new Network({
   input: inputLayer,
-  hidden: [hiddenLayer],
+  hidden: [hiddenLayer1, hiddenLayer2],
   output: outputLayer
 });
-var learningRate = 0.3;
+var learningRate = 0.2;
 var cnt = 0;
-var trainingIterations = 10000;
+var trainingIterations = 20000;
 
 fs.readFile('./data/autompg.txt', 'utf-8', function(err, data) {
   var lines = data.split('\n');
@@ -57,7 +59,7 @@ fs.readFile('./data/autompg.txt', 'utf-8', function(err, data) {
     return [input, output];
   });
 
-  var trainingData = _.sampleSize(autoData, 10);
+  var trainingData = _.sampleSize(autoData, 100);
   while (cnt++ < trainingIterations) {
     trainingData.forEach(function(data) {
       myNetwork.activate(data[0]);

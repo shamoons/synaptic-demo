@@ -1,5 +1,4 @@
 var synaptic = require('synaptic');
-var Neuron = synaptic.Neuron;
 var Layer = synaptic.Layer;
 var Network = synaptic.Network;
 
@@ -18,11 +17,16 @@ var myNetwork = new Network({
 
 var learningRate = 0.3;
 
-var trainingData = [[0, 0, 0], [0, 1, 1], [1, 0, 1], [1, 1, 0]];
+var trainingData = [
+  [0, 0, 0],
+  [0, 1, 1],
+  [1, 0, 1],
+  [1, 1, 0]
+];
 
 var cnt = 0;
 
-var trainingIterations = 10;
+var trainingIterations = 20000;
 
 while (cnt++ < trainingIterations) {
   trainingData.forEach(function(data) {
@@ -40,3 +44,6 @@ console.log(test1);
 console.log(test2);
 console.log(test3);
 console.log(test4);
+
+
+// console.log(myNetwork.toJSON());
